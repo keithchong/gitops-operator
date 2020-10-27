@@ -1,9 +1,18 @@
 apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
+kind: ClusterRole
 metadata:
   creationTimestamp: null
   name: gitops-operator
 rules:
+- apiGroups:
+  - operators.coreos.com
+  resources:
+  - "*"
+  verbs:
+  - get
+  - create
+  - patch
+  - list
 - apiGroups:
   - route.openshift.io
   resources:
